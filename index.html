@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Логистический квест</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 id="decrypt">████████████████</h1>
+
+<div class="quest-box">
+
+<h2 class="copper">Корпоративная разведка</h2>
+
+<p>
+Международный маркетплейс ищет место для строительства 
+логистического центра в России.
+</p>
+
+<p>
+Вам нужно пройти серию аналитических заданий 
+и определить оптимальную локацию.
+</p>
+
+<button onclick="location.href='level1.html'">
+НАЧАТЬ МИССИЮ
+</button>
+
+</div>
+
+<script>
+
+const text = "ДОСТУП К АНАЛИТИЧЕСКОЙ СИСТЕМЕ";
+const el = document.getElementById("decrypt");
+
+let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩ";
+
+let iteration = 0;
+
+let interval = setInterval(() => {
+
+el.innerText = text
+.split("")
+.map((letter, index) => {
+
+if(index < iteration){
+return text[index];
+}
+
+return letters[Math.floor(Math.random()*letters.length)];
+
+})
+.join("");
+
+if(iteration >= text.length){
+clearInterval(interval);
+}
+
+iteration += 0.5;
+
+},40);
+
+</script>
+
+</body>
+</html>
