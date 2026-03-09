@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Уровень 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="quest-box">
+
+<h1>УРОВЕНЬ 2</h1>
+
+<p>
+Найдите логистическую компанию,
+чей распределительный центр расположен
+в крупнейшем транспортном узле Урала.
+</p>
+
+<p>
+Перейдите на сайт компании и найдите информацию.
+</p>
+
+<p class="copper">
+Ozon / Wildberries / СДЭК
+</p>
+
+<p>
+Введите название компании:
+</p>
+
+<input id="answer">
+
+<br>
+
+<button onclick="check()">Проверить</button>
+
+</div>
+
+<script>
+
+function check(){
+
+let a=document.getElementById("answer").value.toLowerCase();
+
+if(a==="ozon"){
+window.location.href="level3.html";
+}else{
+alert("Попробуйте снова");
+}
+
+}
+
+</script>
+
+</body>
+</html>
