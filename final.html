@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Миссия выполнена</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 id="decrypt">████████████████</h1>
+
+<div class="quest-box">
+
+<h2 class="copper">MISSION COMPLETE</h2>
+
+<p>
+Вы успешно определили оптимальную локацию
+логистического центра.
+</p>
+
+<h1>ЕКАТЕРИНБУРГ</h1>
+
+<p>
+Причины выбора:
+</p>
+
+<p>
+• центральное положение  
+• развитая транспортная инфраструктура  
+• пересечение железнодорожных и автомобильных маршрутов  
+• крупный аэропорт Кольцово
+</p>
+
+<p class="hint">
+Система аналитики завершила расчёт.
+</p>
+
+</div>
+
+<script>
+
+const text="ДОСТУП ПОДТВЕРЖДЕН";
+
+const el=document.getElementById("decrypt");
+
+let letters="ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩ";
+
+let iteration=0;
+
+let interval=setInterval(()=>{
+
+el.innerText=text
+.split("")
+.map((letter,index)=>{
+
+if(index<iteration){
+return text[index];
+}
+
+return letters[Math.floor(Math.random()*letters.length)];
+
+})
+.join("");
+
+if(iteration>=text.length){
+clearInterval(interval);
+}
+
+iteration+=0.5;
+
+},40);
+
+</script>
+
+</body>
+</html>
