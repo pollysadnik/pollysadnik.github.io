@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Уровень 4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="quest-box">
+
+<h1>УРОВЕНЬ 4</h1>
+
+<p>
+Назовите международный аэропорт Екатеринбурга.
+</p>
+
+<input id="answer">
+
+<br>
+
+<button onclick="check()">Проверить</button>
+
+</div>
+
+<script>
+
+function check(){
+
+let a=document.getElementById("answer").value.toLowerCase();
+
+if(a==="кольцово"){
+window.location.href="level5.html";
+}else{
+alert("Неверно");
+}
+
+}
+
+</script>
+
+</body>
+</html>
