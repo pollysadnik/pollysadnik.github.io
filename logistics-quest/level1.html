@@ -1,72 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Уровень 1</title>
-<link rel="stylesheet" href="style.css">
+<title>Квест — уровень 1</title>
+
+<style>
+
+body{
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:60px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+input{
+padding:12px;
+font-size:16px;
+margin-top:15px;
+width:260px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+background:#0A8462;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.85;
+}
+
+.message{
+margin-top:20px;
+color:#ff6b6b;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="quest-box">
+<div class="container">
 
-<h1>УРОВЕНЬ 1</h1>
+<h1>Уровень 1</h1>
 
 <p>
 Неспешно прогуливаясь по одной из главных улиц города,
 вы замечаете знакомую вывеску.
 </p>
 
-<!-- ВСТАВКА ЛОГО -->
-
-<img class="logo" src="sharing.jpg"  width="150">
-
 <p>
 Сегодня это одна из крупнейших сетей парфюмерных магазинов страны.
-</p>
-
-<p>
 Но её история началась именно здесь.
 </p>
 
-<p class="copper">
-В каком городе?
-</p>
+<p><b>В каком городе?</b></p>
 
-<input id="answer">
+<input id="answer" placeholder="Введите город">
 
 <br>
 
-<button onclick="check()">Ответить</button>
+<button onclick="checkAnswer()">Проверить</button>
+
+<p id="message" class="message"></p>
 
 </div>
 
 <script>
 
-<script>
+function checkAnswer(){
 
-function check(){
+let input = document.getElementById("answer").value.trim()
 
-let a = document.getElementById("answer")
-.value
-.trim()
-.toLowerCase();
+if(input === "Екатеринбург" || input === "екатеринбург"){
 
-if(a==="Екатеринбург"){
-
-window.location.href="level2.html";
+window.location.href = "level2.html"
 
 }
 
 else{
 
-alert("Ответ не распознан. Проверьте написание.");
+document.getElementById("message").innerText =
+"Ответ не распознан. Попробуйте ещё раз."
 
 }
-
-}
-
-</script>
 
 }
 
