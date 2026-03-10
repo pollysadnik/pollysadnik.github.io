@@ -49,7 +49,7 @@
     }
 
     .copper {
-      color: #b87333; /* Медный цвет */
+      color: #b87333;
       font-weight: bold;
     }
   </style>
@@ -77,7 +77,7 @@
     function normalize(text) {
       return text
         .trim()
-        .replace(/\s/g, ''); // Убираем все пробелы для корректного сравнения чисел
+        .replace(/\s/g, '');
     }
 
     function checkAnswer() {
@@ -86,4 +86,10 @@
       if (input === "288000") {
         window.location.href = "final.html";
       } else {
-        document.getElementById("message").
+        document.getElementById("message").innerText = "Ошибка расчёта. Проверьте свои вычисления и попробуйте снова.";
+        document.getElementById("answer").value = "";
+      }
+    }
+  </script>
+</body>
+</html>
