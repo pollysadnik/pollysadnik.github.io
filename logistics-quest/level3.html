@@ -1,61 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Уровень 3</title>
-<link rel="stylesheet" href="style.css">
+<title>Квест — уровень 3</title>
+
+<style>
+
+body{
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:60px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+input{
+padding:12px;
+font-size:16px;
+margin-top:15px;
+width:260px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+background:#0A8462;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.85;
+}
+
+.message{
+margin-top:20px;
+color:#ff6b6b;
+}
+
+.hint{
+margin-top:15px;
+color:#0bda51;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="quest-box">
+<div class="container">
 
-<h1>УРОВЕНЬ 3</h1>
+<h1>Уровень 3</h1>
 
 <p>
-Чтобы развивать локальный бренд,
-нужно правильно выбрать район для склада
-или пункта выдачи заказов.
+Подумав об успешных интернет-компаниях города,
+вы решаете перейти к более прикладной задаче.
 </p>
 
 <p>
-Используйте сервис:
+Нужно выбрать район для будущего склада
+или пункта выдачи интернет-заказов.
 </p>
 
 <p>
-<a href="https://yandex.ru/geoanalytics/platform?layer=searches&category=orders_pickups_lockers&ll=60.641568%2C56.81901&z=11.05" target="_blank">
-Открыть геоаналитику
-</a>
-</p>
-
-<p>
-Найдите район Екатеринбурга,
-где высокая плотность населения
-и активный пешеходный трафик.
+Используйте сервис геоаналитики и найдите район
+с быстро растущим населением и активной застройкой.
 </p>
 
 <p class="hint">
-Подсказка: самый молодой район города.
+Подсказка: один из самых новых и быстрорастущих районов Екатеринбурга.
 </p>
 
-<input id="answer">
+<p><b>Введите название района</b></p>
+
+<input id="answer" placeholder="Название района">
 
 <br>
 
-<button onclick="check()">Ответить</button>
+<button onclick="checkAnswer()">Проверить</button>
+
+<p id="message" class="message"></p>
 
 </div>
 
 <script>
 
-function check(){
+function normalize(text){
+return text
+.trim()
+.toLowerCase()
+.replace("ё","е");
+}
 
-let a=document.getElementById("answer").value.toLowerCase();
+function checkAnswer(){
 
-if(a==="Академический"){
-window.location.href="level4.html";
-}else{
-alert("Попробуйте другой район");
+let input = normalize(document.getElementById("answer").value);
+
+if(input === "академический"){
+
+window.location.href = "level4.html";
+
+}
+
+else{
+
+document.getElementById("message").innerText =
+"Ответ не распознан. Проверьте название района.";
+
 }
 
 }
