@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Level 3</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="terminal">
+
+<h2>LEVEL 3 — Анализ рынка</h2>
+
+<p>
+Данные аналитического отчёта EdTech:
+</p>
+
+<div class="chart">
+
+<div class="bar" style="height:180px">IT<br>52%</div>
+
+<div class="bar" style="height:70px">Языки<br>21%</div>
+
+<div class="bar" style="height:60px">Школа<br>17%</div>
+
+</div>
+
+<p>
+Какой сегмент растёт быстрее всего?
+</p>
+
+<input id="answer">
+
+<br>
+
+<button onclick="check()">Отправить</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function check(){
+
+let a=document.getElementById("answer").value.toLowerCase()
+
+if(a==="it" || a==="it образование"){
+
+document.getElementById("result").innerHTML="✔ Аналитика подтверждена"
+
+setTimeout(()=>{
+
+window.location.href="level4.html"
+
+},1500)
+
+}
+
+else{
+
+document.getElementById("result").innerHTML="Неверно. Посмотрите на структуру рынка."
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
