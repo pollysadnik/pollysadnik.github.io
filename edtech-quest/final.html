@@ -1,92 +1,184 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
+  <meta charset="UTF-8">
+  <title>Финал квеста</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+      font-family: Arial;
+      color: white;
+      text-align: center;
+      padding: 80px;
+      margin: 0;
+      min-height: 100vh;
+    }
 
-<meta charset="UTF-8">
-<title>Финал квеста</title>
+    .card {
+      background: white;
+      color: #1f2937;
+      padding: 50px;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
 
-<style>
+    /* Эффект блика для карточки */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
 
-body{
-background:linear-gradient(135deg,#2563eb,#9333ea);
-font-family:Arial;
-color:white;
-text-align:center;
-padding:80px;
-}
+    h1 {
+      color: #2563eb;
+      margin-top: 0;
+    }
 
-.card{
+    p {
+      line-height: 1.6;
+    }
 
-background:white;
-color:#1f2937;
-padding:50px;
-max-width:700px;
-margin:auto;
-border-radius:15px;
-box-shadow:0 10px 40px rgba(0,0,0,0.2);
+    .result-section {
+      background: #f8fafc;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 30px 0;
+      border: 1px solid #e2e8f0;
+    }
 
-}
+    .year-display {
+      font-size: 2em;
+      font-weight: bold;
+      color: #2563eb;
+      background: #e0f2fe;
+      padding: 15px 30px;
+      display: inline-block;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
 
-h1{
-color:#2563eb;
-}
+    .timer {
+      font-size: 1.2em;
+      color: #9333ea;
+      font-weight: 600;
+      margin: 15px 0;
+    }
 
-button{
+    button {
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 16px;
+      background: #2563eb;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
 
-margin-top:30px;
-padding:12px 28px;
-font-size:16px;
-background:#2563eb;
-border:none;
-color:white;
-cursor:pointer;
-border-radius:6px;
+    button:hover {
+      background: #9333ea;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+    }
 
-}
-
-button:hover{
-
-background:#9333ea;
-
-}
-
-</style>
-
+    .copy-status {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #059669;
+      height: 20px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="card">
+    <h1>Квест завершён</h1>
 
-<div class="card">
+    <p>Вы успешно провели анализ российского рынка EdTech.</p>
 
-<h1>Квест завершён</h1>
+    <p>Ваши выводы:</p>
 
-<p>
-Вы успешно провели анализ российского рынка EdTech.
-</p>
+    <p>
+      • крупнейшие образовательные платформы<br>
+      • ключевые центры IT‑образования<br>
+      • экономику онлайн‑курсов
+    </p>
 
-<p>
-Ваши выводы:
-</p>
+    <p>Теперь вы готовы разработать стратегию развития образовательного сервиса.</p>
 
-<p>
+    <!-- Блок с уникальным годом и таймером -->
+    <div class="result-section">
+      <p><strong>Результаты вашего прохождения:</strong></p>
+      <p>Уникальный год анализа данных:</p>
+      <div class="year-display" id="unique-year">ГЕНЕРАЦИЯ...</div>
+      <p class="timer">Время прохождения квеста: <span id="timer">00:00</span></p>
+      <p><small>Эти данные уникальны для вашего прохождения</small></p>
+    </div>
 
-• крупнейшие образовательные платформы  
-• ключевые центры IT-образования  
-• экономику онлайн-курсов  
+    <button onclick="copyYear()">Копировать год</button>
+    <p id="copy-status" class="copy-status"></p>
 
-</p>
+    <button onclick="location.href='../index.html'">Вернуться в банк квестов</button>
+  </div>
 
-<p>
-Теперь вы готовы разработать стратегию
-развития образовательного сервиса.
-</p>
+  <script>
+    // Генератор уникального года (диапазон: 2023–2040)
+    function generateUniqueYear() {
+      return Math.floor(Math.random() * 18) + 2023; // 2023 + 0..17 = 2023..2040
+    }
 
-<button onclick="location.href='../index.html'">
-Вернуться в банк квестов
-</button>
+    // Таймер прохождения
+    let startTime = localStorage.getItem('questStartTime');
+    if (!startTime) {
+      startTime = Date.now();
+      localStorage.setItem('questStartTime', startTime);
+    }
 
-</div>
+    function updateTimer() {
+      const currentTime = Date.now();
+      const elapsed = currentTime - parseInt(startTime);
+      const minutes = Math.floor(elapsed / 60000);
+      const seconds = Math.floor((elapsed % 60000) / 1000);
 
+      document.getElementById('timer').textContent =
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Функция копирования года
+    function copyYear() {
+      const year = document.getElementById('unique-year').textContent;
+      navigator.clipboard.writeText(year).then(() => {
+        const status = document.getElementById('copy-status');
+        status.textContent = 'Год успешно скопирован!';
+        setTimeout(() => { status.textContent = ''; }, 2000);
+      }).catch(err => {
+        console.error('Ошибка при копировании: ', err);
+        const status = document.getElementById('copy-status');
+        status.textContent = 'Ошибка копирования';
+        setTimeout(() => { status.textContent = ''; }, 2000);
+      });
+    }
+
+    // Инициализация при загрузке страницы
+    window.onload = function() {
+      // Генерируем и отображаем уникальный год
+      document.getElementById('unique-year').textContent = generateUniqueYear();
+
+      // Запускаем таймер и обновляем каждую секунду
+      setInterval(updateTimer, 1000);
+      updateTimer(); // Сразу показываем текущее время
+    };
+  </script>
 </body>
 </html>
