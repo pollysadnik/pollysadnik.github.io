@@ -2,89 +2,65 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Локальный бренд</title>
+<title>Уровень 1</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1 id="decrypt">████████████</h1>
-
 <div class="quest-box">
 
-<h2 class="copper">Начало прогулки</h2>
+<h1>УРОВЕНЬ 1</h1>
 
 <p>
-Иногда большие идеи начинаются с самых простых вещей.
+Неспешно прогуливаясь по одной из главных улиц города,
+вы замечаете знакомую вывеску.
+</p>
+
+<!-- ВСТАВКА ЛОГО -->
+
+<img class="logo" src="goldapple.png">
+
+<p class="hint">
+Чтобы добавить логотип:
+1. скачайте изображение логотипа
+2. сохраните его как goldapple.png
+3. положите файл в папку сайта
 </p>
 
 <p>
-Прогулка по знакомым улицам.  
-Вывеска старого магазина.  
-Разговор в кофейне.
+Сегодня это одна из крупнейших сетей парфюмерных магазинов страны.
 </p>
 
 <p>
-Вы всегда любили уникальные вещи — локальные бренды,
-небольшие магазины, продукты с характером места.
-</p>
-
-<p>
-И однажды возникает мысль:
+Но её история началась именно здесь.
 </p>
 
 <p class="copper">
-А что если помочь таким брендам выйти в большой мир?
+В каком городе?
 </p>
 
-<p>
-Но для этого нужна стратегия.
-</p>
+<input id="answer">
 
-<p>
-Где открыть склад?  
-Где будет больше заказов?  
-Как найти точку роста?
-</p>
+<br>
 
-<button onclick="location.href='level1.html'">
-Отправиться на прогулку
-</button>
+<button onclick="check()">Ответить</button>
 
 </div>
 
 <script>
 
-const text="АНАЛИТИЧЕСКИЙ РЕЖИМ АКТИВЕН";
+function check(){
 
-const el=document.getElementById("decrypt");
+let a=document.getElementById("answer").value.toLowerCase();
 
-let letters="ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩ";
-
-let iteration=0;
-
-let interval=setInterval(()=>{
-
-el.innerText=text
-.split("")
-.map((letter,index)=>{
-
-if(index<iteration){
-return text[index];
+if(a==="екатеринбург"){
+window.location.href="level2.html";
+}else{
+alert("Попробуйте снова");
 }
 
-return letters[Math.floor(Math.random()*letters.length)];
-
-})
-.join("");
-
-if(iteration>=text.length){
-clearInterval(interval);
 }
-
-iteration+=0.5;
-
-},40);
 
 </script>
 
