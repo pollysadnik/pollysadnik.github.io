@@ -1,52 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Уровень 2</title>
-<link rel="stylesheet" href="style.css">
+<title>Квест — уровень 2</title>
+
+<style>
+
+body{
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:60px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+input{
+padding:12px;
+font-size:16px;
+margin-top:15px;
+width:260px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+background:#0A8462;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.85;
+}
+
+.message{
+margin-top:20px;
+color:#ff6b6b;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="quest-box">
+<div class="container">
 
-<h1>УРОВЕНЬ 2</h1>
-
-<p>
-Екатеринбург — столица Урала и один из центров русского рок-н-ролла.
-</p>
+<h1>Уровень 2</h1>
 
 <p>
-Но это ещё и один из крупнейших центров интернет-торговли.
+Екатеринбург — столица Урала и один из центров интернет-торговли.
 </p>
 
 <p>
-Именно здесь появился один из первых крупных
-интернет-магазинов бытовой техники.
+Помимо сети парфюмерных магазинов,
+здесь появился один из первых крупных интернет-магазинов техники.
 </p>
 
-<p class="copper">
-Как он назывался?
-</p>
+<p><b>Как он назывался?</b></p>
 
-<input id="answer">
+<input id="answer" placeholder="Введите название">
 
 <br>
 
-<button onclick="check()">Ответить</button>
+<button onclick="checkAnswer()">Проверить</button>
+
+<p id="message" class="message"></p>
 
 </div>
 
 <script>
 
-function check(){
+function checkAnswer(){
 
-let a=document.getElementById("answer").value.toLowerCase();
+let input = document.getElementById("answer").value.trim()
 
-if(a==="е96"){
-window.location.href="level3.html";
-}else{
-alert("Неверно");
+if(
+input === "е96" ||
+input === "Е96" ||
+input === "e96" ||
+input === "E96"
+){
+
+window.location.href = "level3.html"
+
+}
+
+else{
+
+document.getElementById("message").innerText =
+"Ответ не распознан."
+
 }
 
 }
