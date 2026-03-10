@@ -13,23 +13,23 @@
 <h1>ФИНАЛЬНАЯ ЗАДАЧА</h1>
 
 <p>
-Логистический центр обрабатывает
-20000 заказов в день.
+Пункт выдачи обслуживает
+120 заказов в день.
 </p>
 
 <p>
-Средняя стоимость доставки — 350 рублей.
+Средний чек — 2400 рублей.
 </p>
 
-<p>
-Введите дневной оборот:
+<p class="copper">
+Какой дневной оборот?
 </p>
 
 <input id="answer">
 
 <br>
 
-<button onclick="check()">Проверить</button>
+<button onclick="check()">Ответить</button>
 
 </div>
 
@@ -39,7 +39,7 @@ function check(){
 
 let a=document.getElementById("answer").value;
 
-if(a==="7000000"){
+if(a==="288000"){
 window.location.href="final.html";
 }else{
 alert("Ошибка расчёта");
