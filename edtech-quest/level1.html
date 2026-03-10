@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="terminal">
+
+<h2>LEVEL 1</h2>
+
+<p>
+Система обнаружила логотип
+быстрорастущей EdTech компании.
+</p>
+
+<img src="logo.png" width="150">
+
+<p>
+Определите компанию.
+</p>
+
+<input id="answer">
+
+<br>
+
+<button onclick="check()">Отправить</button>
+
+</div>
+
+<script>
+
+function check(){
+
+let a=document.getElementById("answer").value.toLowerCase();
+
+if(a==="skyeng"){
+
+window.location.href="level2.html";
+
+}
+
+else{
+
+alert("Ошибка идентификации");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
