@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Level 4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="terminal">
+
+<h2>LEVEL 4 — Инфраструктура</h2>
+
+<p>
+Большинство цифровых сервисов
+работает на облачной инфраструктуре.
+</p>
+
+<p>
+Определите крупнейшего российского
+провайдера облачных сервисов.
+</p>
+
+<div class="options">
+
+<button onclick="check('vk')">VK Cloud</button>
+
+<button onclick="check('yandex')">Yandex Cloud</button>
+
+<button onclick="check('sber')">SberCloud</button>
+
+</div>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function check(ans){
+
+if(ans==="yandex"){
+
+document.getElementById("result").innerHTML="✔ Облачная инфраструктура определена"
+
+setTimeout(()=>{
+
+window.location.href="level5.html"
+
+},1500)
+
+}
+
+else{
+
+document.getElementById("result").innerHTML="Ошибка. Проанализируйте рынок облачных сервисов."
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
