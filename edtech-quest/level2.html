@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Level 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="terminal">
+
+<h2>LEVEL 2 — География инноваций</h2>
+
+<p>
+Венчурные фонды инвестируют в регионы
+с сильной технологической инфраструктурой.
+</p>
+
+<p>
+Найдите крупнейший инновационный кластер России.
+</p>
+
+<p class="hint">
+Подсказка: Это .
+</p>
+
+<div class="map">
+
+<button class="region" onclick="check('kazan')">Иннополис</button>
+
+<button class="region" onclick="check('moscow')">Сколково</button>
+
+<button class="region" onclick="check('novosibirsk')">Технополис GS</button>
+
+<button class="region" onclick="check('tomsk')">Физтех XXI</button>
+
+</div>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function check(region){
+
+if(region==="moscow"){
+
+document.getElementById("result").innerHTML="✔ Кластер найден";
+
+setTimeout(()=>{
+
+window.location.href="level3.html"
+
+},1500)
+
+}
+
+else{
+
+document.getElementById("result").innerHTML="Неверный регион. Анализируйте инфраструктуру.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
